@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+	
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl"> 
+
+	<div class="container">
+		<div class="jumbotron">
+			<div class="container">
+				<form action="" id="SearchForm" class="text-center">
+					<div class="form-group">
+						<label for="">Search your movie</label>
+						<input type="text" class="form-control" ng-model="SearchName">
+					</div>
+					<button type="submit" class="btn btn-primary">Search</button>
+				</form>
+			</div>
+		</div>
+		<table class="table">
+			<thead>
+				<th>Rank</th>
+				<th>Name</th>
+				<th>Year</th>
+				<th>Rating</th>
+			</thead>
+			<tbody ng-repeat=" movie in movies | filter: SearchName">
+				<tr>
+					<td>{{movie.Rank}}</td>
+					<td>{{movie.Title}}</td>
+					<td>{{movie.Year}}</td>
+					<td>{{movie.Rating}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</div>
+
+<p>The $http service requests a page on the server, and the response is set as the value of the "myWelcome" variable.</p>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope, $http) {
+  $http.get("https://api.myjson.com/bins/lfwy9")
+  .then(function(response) {
+      $scope.movies = response.data;
+      console.log($scope.movies);
+  });
+});
+</script>
+
+</body>
+</html>
