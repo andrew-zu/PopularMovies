@@ -34,7 +34,7 @@ class MoviesAdapter(val context: Context, val movies: List<Movie>, val itemClick
 
 
         fun bindMovie(movie: Movie, context: Context) {
-            val infoText = movie.rank + " " + movie.title + " " + movie.year
+            val infoText = movie.rank + " - " + movie.title + " " + "("+movie.year+")"
             movieInfo.text = infoText
             itemView.setOnClickListener { itemClick(movie) }
         }

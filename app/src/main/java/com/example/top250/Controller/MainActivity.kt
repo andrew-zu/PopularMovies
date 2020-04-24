@@ -16,5 +16,10 @@ class MainActivity : AppCompatActivity() {
             val allMoviesIntent = Intent(this, AllMoviesActivity::class.java)
             startActivity(allMoviesIntent)
         }
+
+        movies_to_watch_btn.setOnClickListener {
+            val popularMoviesIntent = Intent(this, PopularMoviesActivity::class.java)
+            startActivity(popularMoviesIntent)
+        }
     }
 }
