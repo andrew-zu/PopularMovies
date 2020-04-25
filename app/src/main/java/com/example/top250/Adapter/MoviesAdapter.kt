@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.top250.Model.NewMovie
 import com.example.top250.R
+import com.squareup.picasso.Picasso
 
 class MoviesAdapter(val context: Context, val movies: ArrayList<NewMovie>, val itemClick: (NewMovie) -> Unit) :
     RecyclerView.Adapter<MoviesAdapter.MoviesHolder>() {
@@ -35,6 +36,7 @@ class MoviesAdapter(val context: Context, val movies: ArrayList<NewMovie>, val i
 
         fun bindMovie(movie: NewMovie, context: Context) {
             val infoText = movie.title + " - " + movie.releaseDate
+            Picasso.get().load(movie.posterPath).into(movieImage);
             movieInfo.text = infoText
             itemView.setOnClickListener { itemClick(movie) }
         }

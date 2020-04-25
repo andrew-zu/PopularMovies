@@ -19,8 +19,7 @@ class AllMoviesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_all_movies)
         
-        val getMovies = GetMoviesJSON()
-        getMovies.execute("https://raw.githubusercontent.com/andrew-zu/data/master/data.json")
+
 
         adapter = MoviesAdapter(this, DataPopularMovies.popularMovies) { movie ->
             val movieDetailsIntent = Intent(this, MovieDetailsActivity::class.java)

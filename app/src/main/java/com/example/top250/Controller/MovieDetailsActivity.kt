@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.example.top250.Model.NewMovie
 import com.example.top250.R
 import com.example.top250.Utils.EXTRA_MOVIE
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_movie_details.*
 
 class MovieDetailsActivity : AppCompatActivity() {
@@ -14,6 +15,8 @@ class MovieDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_details)
         val movie: NewMovie? = intent.getParcelableExtra(EXTRA_MOVIE)
+
+        Picasso.get().load(movie?.backdropPath).into(backdrop_image);
 
         movie_title.text = movie?.title
         movie_average.text = movie?.voteAverage.toString()

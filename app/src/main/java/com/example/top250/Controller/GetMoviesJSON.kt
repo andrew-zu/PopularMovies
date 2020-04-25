@@ -3,7 +3,6 @@ package com.example.top250.Controller
 import android.os.AsyncTask
 import com.example.top250.Model.NewMovie
 import com.example.top250.Services.DataPopularMovies.popularMovies
-import kotlinx.android.synthetic.main.activity_popular_movies.*
 import org.json.JSONException
 import org.json.JSONObject
 import java.net.URL
@@ -34,10 +33,11 @@ class GetMoviesJSON : AsyncTask<String, Void, ArrayList<NewMovie>>() {
                             jsonMovie.getString("backdrop_path")
 
                 val originalLanguage: String? = jsonMovie.getString("original_language")
-                val title: String? = jsonMovie.getString("original_title")
+                val title: String? = jsonMovie.getString("title")
                 val voteAverage: Double? = jsonMovie.getDouble("vote_average")
                 val overview: String? = jsonMovie.getString("overview")
-                val releaseDate: String? = jsonMovie.getString("release_date")
+                var releaseDate: String? = jsonMovie.getString("release_date")
+                releaseDate = releaseDate?.subSequence(0,4) as String?
 
                 val movieObject = NewMovie(
                     popularity,

@@ -6,12 +6,12 @@ import android.widget.ArrayAdapter
 import com.example.top250.Model.NewMovie
 import com.example.top250.R
 
-class PopularMoviesActivity : AppCompatActivity() {
+class MoviesToWatch : AppCompatActivity() {
     lateinit var adapter: ArrayAdapter<NewMovie>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_popular_movies)
+        setContentView(R.layout.activity_movies_to_watch)
 
     }
 
