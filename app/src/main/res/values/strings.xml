@@ -4,4 +4,8 @@
     <string name="movies_to_watch">MOVIES TO WATCH</string>
     <string name="watched_movies">WATCHED MOVIES</string>
     <string name="back">BACK</string>
+    <string name="title">title</string>
+    <string name="average">average</string>
+    <string name="release_date">release date</string>
+    <string name="overview">overview</string>
 </resources>
