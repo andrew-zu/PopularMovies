@@ -7,10 +7,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.top250.Model.Movie
+import com.example.top250.Model.NewMovie
 import com.example.top250.R
+import com.squareup.picasso.Picasso
 
-class MoviesAdapter(val context: Context, val movies: List<Movie>, val itemClick: (Movie) -> Unit) :
+class MoviesAdapter(val context: Context, val movies: ArrayList<NewMovie>, val itemClick: (NewMovie) -> Unit) :
     RecyclerView.Adapter<MoviesAdapter.MoviesHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesHolder {
@@ -27,14 +28,15 @@ class MoviesAdapter(val context: Context, val movies: List<Movie>, val itemClick
         holder.bindMovie(movies[position], context)
     }
 
-    inner class MoviesHolder(itemView: View, val itemClick: (Movie) -> Unit) : RecyclerView.ViewHolder(itemView) {
+    inner class MoviesHolder(itemView: View, val itemClick: (NewMovie) -> Unit) : RecyclerView.ViewHolder(itemView) {
 
         val movieImage = itemView.findViewById<ImageView>(R.id.movie_image)
         val movieInfo = itemView.findViewById<TextView>(R.id.movie_info)
 
 
-        fun bindMovie(movie: Movie, context: Context) {
-            val infoText = movie.rank + " " + movie.title + " " + movie.year
+        fun bindMovie(movie: NewMovie, context: Context) {
+            val infoText = movie.title + " - " + movie.releaseDate
+            Picasso.get().load(movie.posterPath).into(movieImage);
             movieInfo.text = infoText
             itemView.setOnClickListener { itemClick(movie) }
         }
