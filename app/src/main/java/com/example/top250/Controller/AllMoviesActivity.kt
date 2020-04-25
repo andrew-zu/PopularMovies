@@ -6,9 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.top250.Adapter.MoviesAdapter
-import com.example.top250.Model.Movie
 import com.example.top250.R
-import com.example.top250.Services.DataService
+import com.example.top250.Services.DataPopularMovies
 import com.example.top250.Utils.EXTRA_MOVIE
 import kotlinx.android.synthetic.main.activity_all_movies.*
 
@@ -19,8 +18,11 @@ class AllMoviesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_all_movies)
+        
+        val getMovies = GetMoviesJSON()
+        getMovies.execute("https://raw.githubusercontent.com/andrew-zu/data/master/data.json")
 
-        adapter = MoviesAdapter(this, DataService.movies) { movie ->
+        adapter = MoviesAdapter(this, DataPopularMovies.popularMovies) { movie ->
             val movieDetailsIntent = Intent(this, MovieDetailsActivity::class.java)
             movieDetailsIntent.putExtra(EXTRA_MOVIE, movie)
             startActivity(movieDetailsIntent)

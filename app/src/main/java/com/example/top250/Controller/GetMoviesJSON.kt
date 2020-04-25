@@ -2,6 +2,7 @@ package com.example.top250.Controller
 
 import android.os.AsyncTask
 import com.example.top250.Model.NewMovie
+import com.example.top250.Services.DataPopularMovies.popularMovies
 import kotlinx.android.synthetic.main.activity_popular_movies.*
 import org.json.JSONException
 import org.json.JSONObject
@@ -33,7 +34,10 @@ class GetMoviesJSON : AsyncTask<String, Void, ArrayList<NewMovie>>() {
                             jsonMovie.getString("backdrop_path")
 
                 val originalLanguage: String? = jsonMovie.getString("original_language")
-                val originalTitle: String? = jsonMovie.getString("original_title")
+                val title: String? = jsonMovie.getString("original_title")
+                val voteAverage: Double? = jsonMovie.getDouble("vote_average")
+                val overview: String? = jsonMovie.getString("overview")
+                val releaseDate: String? = jsonMovie.getString("release_date")
 
                 val movieObject = NewMovie(
                     popularity,
@@ -44,7 +48,10 @@ class GetMoviesJSON : AsyncTask<String, Void, ArrayList<NewMovie>>() {
                     adult,
                     backdropPath,
                     originalLanguage,
-                    originalTitle
+                    title,
+                    voteAverage,
+                    overview,
+                    releaseDate
                 )
 
                 movieList.add(movieObject)
@@ -58,6 +65,6 @@ class GetMoviesJSON : AsyncTask<String, Void, ArrayList<NewMovie>>() {
 
     override fun onPostExecute(result: ArrayList<NewMovie>) {
         super.onPostExecute(result)
-
+    popularMovies = result
     }
 }

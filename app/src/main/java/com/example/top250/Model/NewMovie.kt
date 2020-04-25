@@ -6,14 +6,19 @@ import android.os.Parcelable
 
 class NewMovie(
     val popularity: Double?,
-    val vote_count: Int?,
+    val voteCount: Int?,
     val video: Boolean?,
-    val poster_path: String?,
+    val posterPath: String?,
     val id: Int?,
     val adult: Boolean?,
-    val backdrop_path: String?,
-    val original_language: String?,
-    val original_title: String?
+    val backdropPath: String?,
+    val origiballanguage: String?,
+    val title: String?,
+    val voteAverage: Double?,
+    val overview: String?,
+    val releaseDate: String?
+
+
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readValue(Double::class.java.classLoader) as? Double,
@@ -24,20 +29,26 @@ class NewMovie(
         parcel.readValue(Boolean::class.java.classLoader) as? Boolean,
         parcel.readString(),
         parcel.readString(),
+        parcel.readString(),
+        parcel.readValue(Double::class.java.classLoader) as? Double,
+        parcel.readString(),
         parcel.readString()
     ) {
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeValue(popularity)
-        parcel.writeValue(vote_count)
+        parcel.writeValue(voteCount)
         parcel.writeValue(video)
-        parcel.writeString(poster_path)
+        parcel.writeString(posterPath)
         parcel.writeValue(id)
         parcel.writeValue(adult)
-        parcel.writeString(backdrop_path)
-        parcel.writeString(original_language)
-        parcel.writeString(original_title)
+        parcel.writeString(backdropPath)
+        parcel.writeString(origiballanguage)
+        parcel.writeString(title)
+        parcel.writeValue(voteAverage)
+        parcel.writeString(overview)
+        parcel.writeString(releaseDate)
     }
 
     override fun describeContents(): Int {
@@ -55,7 +66,7 @@ class NewMovie(
     }
 
     override fun toString(): String {
-        return "$original_title $poster_path $id"
+        return "$title $posterPath $id"
     }
 }
 

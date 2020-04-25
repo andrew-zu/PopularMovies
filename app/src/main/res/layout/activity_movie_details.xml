@@ -7,16 +7,6 @@
     tools:context=".Controller.MovieDetailsActivity">
 
     <TextView
-        android:id="@+id/movie_rank"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="rank"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/movie_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,25 +14,35 @@
         android:text="title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/movie_rank" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/movie_year"
+        android:id="@+id/movie_average"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="year"
+        android:text="average"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/movie_title" />
 
     <TextView
-        android:id="@+id/movie_rating"
+        android:id="@+id/movie_release_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="rating"
+        android:text="release date"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/movie_year" />
+        app:layout_constraintTop_toBottomOf="@+id/movie_average" />
+
+    <TextView
+        android:id="@+id/movie_overview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="overview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/movie_release_date" />
 </androidx.constraintlayout.widget.ConstraintLayout>
