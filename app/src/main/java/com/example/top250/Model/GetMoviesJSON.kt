@@ -1,7 +1,6 @@
-package com.example.top250.Controller
+package com.example.top250.Model
 
 import android.os.AsyncTask
-import com.example.top250.Model.NewMovie
 import com.example.top250.Services.DataPopularMovies.popularMovies
 import org.json.JSONException
 import org.json.JSONObject
