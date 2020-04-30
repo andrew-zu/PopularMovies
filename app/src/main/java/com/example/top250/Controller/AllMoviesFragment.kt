@@ -1,17 +1,16 @@
 package com.example.top250.Controller
 
-import android.content.Context
-import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.top250.Adapter.MoviesAdapter
 import com.example.top250.Model.GetMoviesJSON
+import com.example.top250.Model.getMoviesFromUrl
+import com.example.top250.Model.setMovies
 
 import com.example.top250.R
 import com.example.top250.Services.DataPopularMovies
@@ -36,14 +35,15 @@ class AllMoviesFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        //get data
-        val getMovies = GetMoviesJSON()
-        getMovies.execute("https://raw.githubusercontent.com/andrew-zu/data/master/data.json")
 
+//        val getMovies = GetMoviesJSON()
+//        getMovies.execute("https://raw.githubusercontent.com/andrew-zu/data/master/data.json")
+
+        setMovies("https://raw.githubusercontent.com/andrew-zu/data/master/data.json")
 
         adapter = MoviesAdapter(context, DataPopularMovies.popularMovies) {Movie ->
             println("clicking on Movie")
-            //onClick
+
             movieDetailsFragment = MovieDetailsFragment()
 
             val bundle: Bundle? = Bundle()

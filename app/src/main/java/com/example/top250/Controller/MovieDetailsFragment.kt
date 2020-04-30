@@ -19,18 +19,16 @@ class MovieDetailsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_movie_details, container, false)
     }
+
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
         val bundle: Bundle? = this.arguments
         val movie: NewMovie? = bundle?.getParcelable(EXTRA_MOVIE)
-        println(movie)
 
         Picasso.get().load(movie?.backdropPath).into(movie_back_image)
         movie_overview.text = movie?.title
