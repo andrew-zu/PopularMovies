@@ -1,7 +1,7 @@
-package com.example.top250.Model
+package com.example.top250.models
 
 import android.os.AsyncTask
-import com.example.top250.Services.DataPopularMovies.popularMovies
+import com.example.top250.services.DataPopularMovies.popularMovies
 import org.json.JSONException
 import org.json.JSONObject
 import java.net.URL

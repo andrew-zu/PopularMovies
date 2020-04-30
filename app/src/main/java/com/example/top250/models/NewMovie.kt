@@ -1,4 +1,4 @@
-package com.example.top250.Model
+package com.example.top250.models
 
 
 import android.os.Parcel

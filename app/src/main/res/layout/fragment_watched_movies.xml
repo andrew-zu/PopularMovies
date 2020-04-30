@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Controller.WatchedMoviesFragment">
+    tools:context=".controllers.WatchedMoviesFragment">
 
     <TextView
         android:id="@+id/watched_movies_fragment_text"

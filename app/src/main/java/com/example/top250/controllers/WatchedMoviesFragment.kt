@@ -1,4 +1,4 @@
-package com.example.top250.Controller
+package com.example.top250.controllers
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

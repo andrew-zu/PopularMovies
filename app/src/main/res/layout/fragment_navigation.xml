@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Controller.NavigationFragment">
+    tools:context=".controllers.NavigationFragment">
 
     <Button
         android:id="@+id/top_movies_btn"

@@ -1,11 +1,11 @@
-package com.example.top250.Utils
+package com.example.top250.utils
 
-import com.example.top250.Model.NewMovie
+import com.example.top250.models.NewMovie
 import org.json.JSONException
 import org.json.JSONObject
 
 
-fun parceJSON(jsonString: String): ArrayList<NewMovie> {
+fun parseJSON(jsonString: String): ArrayList<NewMovie> {
     val movieList = ArrayList<NewMovie>()
     try {
         val jsonData = JSONObject(jsonString)

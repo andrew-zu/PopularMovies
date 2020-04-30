@@ -1,4 +1,4 @@
-package com.example.top250.Controller
+package com.example.top250.controllers
 
 import android.content.res.Configuration
 import android.os.Bundle
@@ -7,14 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.top250.Adapter.MoviesAdapter
-import com.example.top250.Model.GetMoviesJSON
-import com.example.top250.Model.getMoviesFromUrl
-import com.example.top250.Model.setMovies
+import com.example.top250.adapters.MoviesAdapter
+import com.example.top250.models.setMovies
 
 import com.example.top250.R
-import com.example.top250.Services.DataPopularMovies
-import com.example.top250.Utils.EXTRA_MOVIE
+import com.example.top250.services.DataPopularMovies
+import com.example.top250.utils.EXTRA_MOVIE
 import kotlinx.android.synthetic.main.fragment_all_movies.*
 
 

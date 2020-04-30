@@ -1,4 +1,4 @@
-package com.example.top250.Controller
+package com.example.top250.controllers
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

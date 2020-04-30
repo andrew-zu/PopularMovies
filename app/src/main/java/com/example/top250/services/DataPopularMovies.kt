@@ -1,6 +1,6 @@
-package com.example.top250.Services
+package com.example.top250.services
 
-import com.example.top250.Model.NewMovie
+import com.example.top250.models.NewMovie
 
 object DataPopularMovies {
 

@@ -1,19 +1,13 @@
-package com.example.top250.Controller
+package com.example.top250.controllers
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.top250.Model.getMoviesFromUrl
-import com.example.top250.Model.setMovies
 
 import com.example.top250.R
-import com.example.top250.Services.DataPopularMovies.popularMovies
 import kotlinx.android.synthetic.main.fragment_navigation.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers.IO
-import kotlinx.coroutines.launch
 
 
 class NavigationFragment : Fragment() {
