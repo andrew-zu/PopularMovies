@@ -31,7 +31,8 @@ class MovieDetailsFragment : Fragment() {
         val movie: NewMovie? = bundle?.getParcelable(EXTRA_MOVIE)
 
         Picasso.get().load(movie?.backdropPath).into(movie_back_image)
-        movie_overview.text = movie?.title
+        movie_title.text = "${movie?.title}  (${movie?.releaseDate})  *${movie?.voteAverage}"
+        movie_overview.text = movie?.overview
 
     }
 

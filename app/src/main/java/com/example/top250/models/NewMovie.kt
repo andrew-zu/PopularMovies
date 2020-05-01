@@ -12,7 +12,7 @@ class NewMovie(
     val id: Int?,
     val adult: Boolean?,
     val backdropPath: String?,
-    val origiballanguage: String?,
+    val originalLanguage: String?,
     val title: String?,
     val voteAverage: Double?,
     val overview: String?,
@@ -44,7 +44,7 @@ class NewMovie(
         parcel.writeValue(id)
         parcel.writeValue(adult)
         parcel.writeString(backdropPath)
-        parcel.writeString(origiballanguage)
+        parcel.writeString(originalLanguage)
         parcel.writeString(title)
         parcel.writeValue(voteAverage)
         parcel.writeString(overview)
