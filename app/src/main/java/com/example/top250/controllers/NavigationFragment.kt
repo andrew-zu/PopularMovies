@@ -19,6 +19,9 @@ class NavigationFragment : Fragment() {
         allMoviesFragment = AllMoviesFragment()
 
         top_movies_btn.setOnClickListener{
+
+
+
             activity?.supportFragmentManager
                 ?.beginTransaction()
                 ?.replace(R.id.main_container, allMoviesFragment)
@@ -27,10 +30,6 @@ class NavigationFragment : Fragment() {
         }
 
         movies_to_watch_btn.setOnClickListener {
-
-
-
-
 
         }
 

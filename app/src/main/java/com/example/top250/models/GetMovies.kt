@@ -5,18 +5,24 @@ import com.example.top250.utils.parseJSON
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.Dispatchers.Main
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.net.URL
 
-suspend fun getMoviesFromUrl(url: String): String = withContext(IO) {
-    return@withContext URL(url).readText()
+suspend fun getMoviesFromJSON(url: String): String = withContext(IO) {
+    var result = URL(url).readText()
+    println("Finish downloading")
+    return@withContext result
 }
 
-fun setMovies(url: String){
-    CoroutineScope(Main).launch {
-        popularMovies = parseJSON(getMoviesFromUrl(url))
-    }
-}
+//fun setMovies(url: String) {
+//    CoroutineScope(Main).launch {
+//        val movies = parseJSON(getMoviesFromUrl(url))
+//        popularMovies = movies
+//        println("from setMovies " + popularMovies)
+//
+//    }
+//}
 
 
