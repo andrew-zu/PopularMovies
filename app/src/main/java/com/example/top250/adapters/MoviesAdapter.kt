@@ -1,4 +1,4 @@
-package com.example.top250.Adapter
+package com.example.top250.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.top250.Model.NewMovie
+import com.example.top250.models.NewMovie
 import com.example.top250.R
 import com.squareup.picasso.Picasso
 
-class MoviesAdapter(val context: Context, val movies: ArrayList<NewMovie>, val itemClick: (NewMovie) -> Unit) :
+class MoviesAdapter(val context: Context?, val movies: ArrayList<NewMovie>, val itemClick: (NewMovie) -> Unit) :
     RecyclerView.Adapter<MoviesAdapter.MoviesHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesHolder {
@@ -34,11 +34,15 @@ class MoviesAdapter(val context: Context, val movies: ArrayList<NewMovie>, val i
         val movieInfo = itemView.findViewById<TextView>(R.id.movie_info)
 
 
-        fun bindMovie(movie: NewMovie, context: Context) {
+        fun bindMovie(movie: NewMovie, context: Context?) {
             val infoText = movie.title + " - " + movie.releaseDate
             Picasso.get().load(movie.posterPath).into(movieImage);
             movieInfo.text = infoText
             itemView.setOnClickListener { itemClick(movie) }
         }
     }
+}
+
+fun createAdapter() {
+
 }

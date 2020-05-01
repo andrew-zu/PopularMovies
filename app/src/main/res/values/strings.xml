@@ -4,4 +4,18 @@
     <string name="movies_to_watch">MOVIES TO WATCH</string>
     <string name="watched_movies">WATCHED MOVIES</string>
     <string name="back">BACK</string>
+    <string name="title">title</string>
+    <string name="average">average</string>
+    <string name="release_date">release date</string>
+    <string name="overview">overview</string>
+    <string name="todo">TODO</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="moview_overview">Moview Overview</string>
+    <string name="overvirew">Overvirew</string>
+    <string name="add_to_watch_later">add to watch later</string>
+    <string name="add_to_watched">add to watched</string>
+    <string name="top_movies">Top Movies</string>
+    <string name="back_image">back_image</string>
 </resources>
