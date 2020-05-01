@@ -62,20 +62,19 @@ class AllMoviesFragment : Fragment() {
                     ?.addToBackStack("Back to main")
                     ?.commit()
             }
+
             topMoviesRecyclerView.adapter = adapter
 
+            var spanCount = 2
+            val orientation = resources.configuration.orientation
+            if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                spanCount = 3
+            }
+
+            val layoutManager = GridLayoutManager(activity, spanCount)
+            topMoviesRecyclerView.layoutManager = layoutManager
+
         }
-
-        var spanCount = 2
-        val orientation = resources.configuration.orientation
-        if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            spanCount = 3
-        }
-
-        val layoutManager = GridLayoutManager(activity, spanCount)
-        topMoviesRecyclerView.layoutManager = layoutManager
-
-
     }
 
 }

@@ -13,15 +13,16 @@ import kotlinx.android.synthetic.main.fragment_navigation.*
 class NavigationFragment : Fragment() {
 
     lateinit var allMoviesFragment: AllMoviesFragment
+    lateinit var moviesToWatchFragment: MoviesToWatchFragment
+    lateinit var watchedMoviesFragment: WatchedMoviesFragment
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         allMoviesFragment = AllMoviesFragment()
+        moviesToWatchFragment = MoviesToWatchFragment()
+        watchedMoviesFragment = WatchedMoviesFragment()
 
         top_movies_btn.setOnClickListener{
-
-
-
             activity?.supportFragmentManager
                 ?.beginTransaction()
                 ?.replace(R.id.main_container, allMoviesFragment)
@@ -30,7 +31,19 @@ class NavigationFragment : Fragment() {
         }
 
         movies_to_watch_btn.setOnClickListener {
+            activity?.supportFragmentManager
+                ?.beginTransaction()
+                ?.replace(R.id.main_container, moviesToWatchFragment)
+                ?.addToBackStack("Back to main")
+                ?.commit()
+        }
 
+        watched_movies_btn.setOnClickListener {
+            activity?.supportFragmentManager
+                ?.beginTransaction()
+                ?.replace(R.id.main_container, watchedMoviesFragment)
+                ?.addToBackStack("Back to main")
+                ?.commit()
         }
 
     }

@@ -11,14 +11,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-
         //show nav fragment
         navigationFragment = NavigationFragment()
 
         supportFragmentManager
             .beginTransaction()
-//            .replace(R.id.main_container, navigationFragment)
             .replace(R.id.main_container, navigationFragment)
             .commit()
     }

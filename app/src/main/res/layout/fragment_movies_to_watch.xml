@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".controllers.MoviesToWatchFragment">
+
+    <TextView
+        android:id="@+id/movies_to_watch_fragment_text"
+        android:layout_width="365dp"
+        android:layout_height="293dp"
+        android:text="Movies to watch here"
+        android:textSize="40sp" />
+</FrameLayout>

@@ -42,3 +42,7 @@ class MoviesAdapter(val context: Context?, val movies: ArrayList<NewMovie>, val 
         }
     }
 }
+
+fun createAdapter() {
+
+}

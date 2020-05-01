@@ -17,4 +17,5 @@
     <string name="add_to_watch_later">add to watch later</string>
     <string name="add_to_watched">add to watched</string>
     <string name="top_movies">Top Movies</string>
+    <string name="back_image">back_image</string>
 </resources>
