@@ -11,6 +11,7 @@ import com.example.top250.adapters.MoviesAdapter
 
 import com.example.top250.R
 import com.example.top250.models.getMoviesFromJSON
+import com.example.top250.models.setMovies
 import com.example.top250.services.DataPopularMovies
 import com.example.top250.services.DataPopularMovies.popularMovies
 import com.example.top250.utils.EXTRA_MOVIE
@@ -36,7 +37,9 @@ class AllMoviesFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        movieDetailsFragment = MovieDetailsFragment()
 
+        val jsonUrl = "https://raw.githubusercontent.com/andrew-zu/data/master/data.json"
 //        setMovies("https://raw.githubusercontent.com/andrew-zu/data/master/data.json")
 
 
@@ -44,10 +47,10 @@ class AllMoviesFragment : Fragment() {
             println("Start downloading")
 
             val movies =
-                parseJSON(getMoviesFromJSON("https://raw.githubusercontent.com/andrew-zu/data/master/data.json"))
+                parseJSON(getMoviesFromJSON(jsonUrl))
             popularMovies = movies
 
-            adapter = MoviesAdapter(context, DataPopularMovies.popularMovies) { Movie ->
+            adapter = MoviesAdapter(context, popularMovies) { Movie ->
 
                 movieDetailsFragment = MovieDetailsFragment()
                 val bundle: Bundle? = Bundle()
@@ -59,18 +62,19 @@ class AllMoviesFragment : Fragment() {
                     ?.addToBackStack("Back to main")
                     ?.commit()
             }
-
             topMoviesRecyclerView.adapter = adapter
 
-            var spanCount = 2
-            val orientation = resources.configuration.orientation
-            if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                spanCount = 3
-            }
-
-            val layoutManager = GridLayoutManager(activity, spanCount)
-            topMoviesRecyclerView.layoutManager = layoutManager
         }
+
+        var spanCount = 2
+        val orientation = resources.configuration.orientation
+        if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            spanCount = 3
+        }
+
+        val layoutManager = GridLayoutManager(activity, spanCount)
+        topMoviesRecyclerView.layoutManager = layoutManager
+
 
     }
 
