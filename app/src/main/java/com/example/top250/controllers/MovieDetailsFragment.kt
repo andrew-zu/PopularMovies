@@ -37,14 +37,12 @@ class MovieDetailsFragment : Fragment() {
         movie_overview.text = movie?.overview
 
 
-        println("current movie is: $movie")
+        println("current movie is: $movie + hashCode: ${movie.hashCode()}")
         println("watched movies list: $watchedMovies")
+        println(" ${watchedMovies.forEach { println(it.hashCode()) }}")
         println ("list contains current movie ${watchedMovies.contains(movie)}")
-        watchedMovies.
+        watchedMovies.contains(movie)
 
-        if(watchedMovies.size>0){
-            println("is equal: ${movie?.id == watchedMovies[0].id}")
-        }
 
 
         add_to_watched_btn.setOnClickListener {
