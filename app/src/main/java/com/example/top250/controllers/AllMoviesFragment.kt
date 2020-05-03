@@ -5,16 +5,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.top250.adapters.MoviesAdapter
 
 import com.example.top250.R
+import com.example.top250.models.getPopularMoviesList
 import com.example.top250.models.setMoviesToView
+import com.example.top250.services.DataPopularMovies.popularMovies
 import kotlinx.android.synthetic.main.fragment_all_movies.*
 
 
 class AllMoviesFragment : Fragment() {
 
-    lateinit var adapter: MoviesAdapter
     lateinit var movieDetailsFragment: MovieDetailsFragment
 
     override fun onCreateView(
@@ -33,11 +33,9 @@ class AllMoviesFragment : Fragment() {
 
         val fragmentManager = activity?.supportFragmentManager
 
-        setMoviesToView(jsonUrl,
-            this.context,
-            movieDetailsFragment,
-            top_movies_recycler_view,
-            fragmentManager)
+        getPopularMoviesList(jsonUrl){
+            setMoviesToView(popularMovies, context, movieDetailsFragment, top_movies_recycler_view, fragmentManager)
+        }
     }
 
 

@@ -5,9 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
 import com.example.top250.R
-import com.example.top250.adapters.MoviesAdapter
 import com.example.top250.models.setMoviesToView
 import com.example.top250.services.DataWatchedMovies.watchedMovies
 import kotlinx.android.synthetic.main.fragment_all_movies.*
@@ -16,7 +14,6 @@ import kotlinx.android.synthetic.main.fragment_watched_movies.*
 
 class WatchedMoviesFragment : Fragment() {
 
-    lateinit var adapter: MoviesAdapter
     lateinit var movieDetailsFragment: MovieDetailsFragment
 
 
@@ -31,6 +28,10 @@ class WatchedMoviesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         movieDetailsFragment = MovieDetailsFragment()
+
+        val fragmentManager = activity?.supportFragmentManager
+
+        setMoviesToView(watchedMovies, this.context, movieDetailsFragment, watched_movies_recycler_view, fragmentManager)
 
 
     }
