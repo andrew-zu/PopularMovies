@@ -66,7 +66,7 @@ class NewMovie(
     }
 
     override fun toString(): String {
-        return "$title $posterPath $id"
+        return "$title $id"
     }
 }
 

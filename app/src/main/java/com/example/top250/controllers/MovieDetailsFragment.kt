@@ -36,8 +36,15 @@ class MovieDetailsFragment : Fragment() {
         movie_title.text = "${movie?.title}  (${movie?.releaseDate})  *${movie?.voteAverage}"
         movie_overview.text = movie?.overview
 
-        println(watchedMovies)
-        println (watchedMovies.contains(movie))
+
+        println("current movie is: $movie")
+        println("watched movies list: $watchedMovies")
+        println ("list contains current movie ${watchedMovies.contains(movie)}")
+        watchedMovies.
+
+        if(watchedMovies.size>0){
+            println("is equal: ${movie?.id == watchedMovies[0].id}")
+        }
 
 
         add_to_watched_btn.setOnClickListener {
@@ -46,6 +53,9 @@ class MovieDetailsFragment : Fragment() {
                 if(!watchedMovies.contains(movie)){
                     watchedMovies.add(movie)
 //                    add_to_watched_btn.text = IN_WATCHED_LIST
+                    println("_________MOVIE ADDED_________")
+                    println ("list contains current movie ${watchedMovies.contains(movie)}")
+
 
                 } else {
                     println("Movie is already added!!!")
@@ -55,8 +65,6 @@ class MovieDetailsFragment : Fragment() {
                 println("Movie is null!!!!")
             }
 
-            println(watchedMovies)
-            println (watchedMovies.contains(movie))
 
         }
     }

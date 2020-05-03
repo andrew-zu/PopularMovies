@@ -31,7 +31,7 @@ class WatchedMoviesFragment : Fragment() {
 
         val fragmentManager = activity?.supportFragmentManager
 
-        setMoviesToView(watchedMovies, this.context, movieDetailsFragment, watched_movies_recycler_view, fragmentManager)
+        setMoviesToView(watchedMovies, context, movieDetailsFragment, watched_movies_recycler_view, fragmentManager)
 
 
     }

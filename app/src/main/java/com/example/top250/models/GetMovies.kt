@@ -19,8 +19,6 @@ import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.Dispatchers.Main
 import java.net.URL
 
-//fun callWaiterOption(func: CallWaiterRobot.() -> Unit) = CallWaiterRobot().apply { func() }
-
 
 suspend fun getMoviesFromJSON(url: String): String = withContext(IO) {
     var result = URL(url).readText()
