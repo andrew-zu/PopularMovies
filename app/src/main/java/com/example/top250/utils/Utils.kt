@@ -1,8 +1,11 @@
 package com.example.top250.utils
 
+import android.content.Context
 import com.example.top250.models.NewMovie
 import org.json.JSONException
 import org.json.JSONObject
+import java.io.File
+
 
 
 fun parseJSON(jsonString: String): ArrayList<NewMovie> {
@@ -54,6 +57,5 @@ fun parseJSON(jsonString: String): ArrayList<NewMovie> {
     } catch (e: JSONException) {
         e.printStackTrace()
     }
-
     return movieList
 }

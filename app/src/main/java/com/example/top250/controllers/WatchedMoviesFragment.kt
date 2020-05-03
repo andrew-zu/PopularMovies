@@ -7,9 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.example.top250.R
+import com.example.top250.adapters.MoviesAdapter
+import com.example.top250.models.setMoviesToView
+import com.example.top250.services.DataWatchedMovies.watchedMovies
+import kotlinx.android.synthetic.main.fragment_all_movies.*
+import kotlinx.android.synthetic.main.fragment_watched_movies.*
 
 
 class WatchedMoviesFragment : Fragment() {
+
+    lateinit var adapter: MoviesAdapter
+    lateinit var movieDetailsFragment: MovieDetailsFragment
 
 
     override fun onCreateView(
@@ -18,6 +26,13 @@ class WatchedMoviesFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_watched_movies, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        movieDetailsFragment = MovieDetailsFragment()
+
+
     }
 
 }

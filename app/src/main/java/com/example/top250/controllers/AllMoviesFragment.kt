@@ -25,15 +25,21 @@ class AllMoviesFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_all_movies, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         movieDetailsFragment = MovieDetailsFragment()
 
         val jsonUrl = "https://raw.githubusercontent.com/andrew-zu/data/master/data.json"
 
         val fragmentManager = activity?.supportFragmentManager
-        setMoviesToView(jsonUrl, this.context, movieDetailsFragment, topMoviesRecyclerView, fragmentManager)
 
+        setMoviesToView(jsonUrl,
+            this.context,
+            movieDetailsFragment,
+            top_movies_recycler_view,
+            fragmentManager)
     }
+
+
 
 }

@@ -7,7 +7,7 @@
     tools:context=".controllers.AllMoviesFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/topMoviesRecyclerView"
+        android:id="@+id/top_movies_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

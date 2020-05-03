@@ -15,12 +15,14 @@ class NavigationFragment : Fragment() {
     lateinit var allMoviesFragment: AllMoviesFragment
     lateinit var moviesToWatchFragment: MoviesToWatchFragment
     lateinit var watchedMoviesFragment: WatchedMoviesFragment
+    lateinit var read_write_fragment: ReadWriteFragment
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         allMoviesFragment = AllMoviesFragment()
         moviesToWatchFragment = MoviesToWatchFragment()
         watchedMoviesFragment = WatchedMoviesFragment()
+        read_write_fragment = ReadWriteFragment()
 
         top_movies_btn.setOnClickListener{
             activity?.supportFragmentManager
@@ -42,6 +44,14 @@ class NavigationFragment : Fragment() {
             activity?.supportFragmentManager
                 ?.beginTransaction()
                 ?.replace(R.id.main_container, watchedMoviesFragment)
+                ?.addToBackStack("Back to main")
+                ?.commit()
+        }
+
+        test_btn.setOnClickListener {
+            activity?.supportFragmentManager
+                ?.beginTransaction()
+                ?.replace(R.id.main_container, read_write_fragment)
                 ?.addToBackStack("Back to main")
                 ?.commit()
         }

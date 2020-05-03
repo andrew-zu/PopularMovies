@@ -10,8 +10,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.top250.R
 import com.example.top250.adapters.MoviesAdapter
 import com.example.top250.services.DataPopularMovies.popularMovies
+import com.example.top250.services.DataWatchedMovies.watchedMovies
 import com.example.top250.utils.EXTRA_MOVIE
 import com.example.top250.utils.parseJSON
+import kotlinx.android.synthetic.main.fragment_all_movies.*
 import kotlinx.coroutines.*
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.Dispatchers.Main
@@ -58,5 +60,6 @@ fun setMoviesToView(
 
     }
 }
+
 
 
