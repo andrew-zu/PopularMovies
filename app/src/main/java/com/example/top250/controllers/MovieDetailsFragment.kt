@@ -5,14 +5,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.top250.models.NewMovie
-
 import com.example.top250.R
 import com.example.top250.services.DataWatchedMovies.watchedMovies
+import com.example.top250.services.MySharedPreferences
 import com.example.top250.utils.EXTRA_MOVIE
+import com.example.top250.utils.WATCHED_MOVIES
+import com.example.top250.utils.jsonToArrayList
+import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_movie_details.*
+import org.json.JSONArray
 
+val REMOVE_FROM_WATCHED = "REMOVE FROM WATCHED"
+val ADD_TO_WATCHED = "ADD TO WATCHED"
 
 class MovieDetailsFragment : Fragment() {
 
@@ -29,44 +36,81 @@ class MovieDetailsFragment : Fragment() {
         val bundle: Bundle? = this.arguments
         val movie: NewMovie? = bundle?.getParcelable(EXTRA_MOVIE)
 
-        val IN_WATCHED_LIST = "REMOVE FROM WATCHED"
-
-
-        Picasso.get().load(movie?.backdropPath).into(movie_back_image)
+        Picasso.get().load("https://image.tmdb.org/t/p/original" + movie?.backdropPath)
+            .into(movie_back_image)
         movie_title.text = "${movie?.title}  (${movie?.releaseDate})  *${movie?.voteAverage}"
         movie_overview.text = movie?.overview
 
 
-        println("current movie is: $movie + hashCode: ${movie.hashCode()}")
-        println("watched movies list: $watchedMovies")
-        println(" ${watchedMovies.forEach { println(it.hashCode()) }}")
-        println ("list contains current movie ${watchedMovies.contains(movie)}")
-        watchedMovies.contains(movie)
-
-
+        if (containsMovie(movie)) {
+            add_to_watched_btn.text = REMOVE_FROM_WATCHED
+        } else {
+            add_to_watched_btn.text = ADD_TO_WATCHED
+        }
 
         add_to_watched_btn.setOnClickListener {
+            if (containsMovie(movie)) {
+                println("movie removed ${movie?.title}")
+                removeFromWatched(movie)
+                add_to_watched_btn.text = ADD_TO_WATCHED
+            } else {
+                println("Movie aded ${movie?.title}")
+                addToWatched(movie)
+                add_to_watched_btn.text = REMOVE_FROM_WATCHED
+            }
+        }
 
-            if (movie != null) {
-                if(!watchedMovies.contains(movie)){
-                    watchedMovies.add(movie)
-//                    add_to_watched_btn.text = IN_WATCHED_LIST
-                    println("_________MOVIE ADDED_________")
-                    println ("list contains current movie ${watchedMovies.contains(movie)}")
+        add_to_watchlist_btn.setOnClickListener {
+            val toast = Toast.makeText(context, "Not yet implemented", Toast.LENGTH_SHORT)
+            toast.show()
+        }
+    }
 
-
-                } else {
-                    println("Movie is already added!!!")
-                }
-
-            } else{
-                println("Movie is null!!!!")
+    fun addToWatched(movie: NewMovie?) {
+        if (movie != null) {
+            if (!containsMovie(movie)) {
+                watchedMovies.add(movie)
+                MySharedPreferences.saveToPref(watchedMovies)
+            } else {
+                println("Movie is already added!!!")
             }
 
+        } else {
+            println("Movie is null!!!!")
+        }
+    }
 
+    fun removeFromWatched(movie: NewMovie?) {
+        if (movie != null) {
+            if (containsMovie(movie)) {
+                removeMovieWithId(movie)
+                MySharedPreferences.saveToPref(watchedMovies)
+            } else {
+                println("Movie not in a list")
+            }
+
+        } else {
+            println("Movie is null!!!!")
         }
     }
 
 
+    fun containsMovie(movie: NewMovie?): Boolean {
+        val currentId = movie?.id
+        watchedMovies.forEach {
+            if (it.id == currentId) {
+                return true
+            }
+        }
+        return false
+    }
 
+    fun removeMovieWithId(movie: NewMovie?) {
+        val currentId = movie?.id
+        watchedMovies.forEach {
+            if (it.id == currentId) {
+                watchedMovies.remove(it)
+            }
+        }
+    }
 }

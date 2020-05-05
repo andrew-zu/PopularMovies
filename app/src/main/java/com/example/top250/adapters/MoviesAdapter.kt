@@ -33,10 +33,9 @@ class MoviesAdapter(val context: Context?, val movies: ArrayList<NewMovie>, val 
         val movieImage = itemView.findViewById<ImageView>(R.id.movie_image)
         val movieInfo = itemView.findViewById<TextView>(R.id.movie_info)
 
-
         fun bindMovie(movie: NewMovie, context: Context?) {
             val infoText = movie.title + " - " + movie.releaseDate
-            Picasso.get().load(movie.posterPath).into(movieImage);
+            Picasso.get().load("https://image.tmdb.org/t/p/original"+movie.posterPath).into(movieImage);
             movieInfo.text = infoText
             itemView.setOnClickListener { itemClick(movie) }
         }
