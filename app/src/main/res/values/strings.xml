@@ -19,4 +19,6 @@
     <string name="top_movies">Top Movies</string>
     <string name="back_image">back_image</string>
     <string name="no_movies_to_show">NO MOVIES TO SHOW</string>
+    <string name="info">Info</string>
+    <string name="movie_poster">movie_poster</string>
 </resources>
