@@ -33,8 +33,14 @@ object MySharedPreferences {
     }
 
     fun retrieveFromPref(KEY_NAME: String): ArrayList<NewMovie> {
-        val dataString = preferences.getString(WATCHED_MOVIES, null)
-        return jsonToArrayList(dataString)
+        var retrievedMovieList = ArrayList<NewMovie>()
+        val dataString = preferences.getString(KEY_NAME, null)
+        if(dataString!=null){
+            retrievedMovieList = jsonToArrayList(dataString)
+            return retrievedMovieList
+        } else {
+            return retrievedMovieList
+        }
     }
 
     fun clearSharedPreference() {

@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 
 import com.example.top250.R
+import com.example.top250.services.DataWatchedMovies
+import kotlinx.android.synthetic.main.fragment_movies_to_watch.*
 
 class MoviesToWatchFragment : Fragment() {
 
@@ -22,6 +24,14 @@ class MoviesToWatchFragment : Fragment() {
 
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_movies_to_watch, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        if(DataWatchedMovies.watchedMovies.isEmpty()){
+            no_movies_to_display1.visibility = View.VISIBLE
+        }
     }
 
 

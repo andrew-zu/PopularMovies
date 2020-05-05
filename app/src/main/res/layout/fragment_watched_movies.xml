@@ -6,7 +6,16 @@
     tools:context=".controllers.WatchedMoviesFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/watched_movies_recycler_view"
+        android:id="@+id/movies_to_watch_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/no_movies_to_display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/no_movies_to_show"
+        android:textSize="28sp"
+        android:visibility="invisible" />
 </FrameLayout>
