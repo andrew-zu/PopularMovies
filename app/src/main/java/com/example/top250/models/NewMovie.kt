@@ -1,6 +1,5 @@
 package com.example.top250.models
 
-
 import android.os.Parcel
 import android.os.Parcelable
 
@@ -66,7 +65,7 @@ class NewMovie(
     }
 
     override fun toString(): String {
-        return "$title $posterPath $id"
+        return "$title $id"
     }
 }
 

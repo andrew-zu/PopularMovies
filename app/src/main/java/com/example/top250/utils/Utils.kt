@@ -1,6 +1,7 @@
 package com.example.top250.utils
 
 import com.example.top250.models.NewMovie
+import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 
@@ -10,23 +11,15 @@ fun parseJSON(jsonString: String): ArrayList<NewMovie> {
     try {
         val jsonData = JSONObject(jsonString)
         val moviesArray = jsonData.getJSONArray("movies")
-
         for (i in 0 until moviesArray.length()) {
             val jsonMovie = moviesArray.getJSONObject(i)
-
             val popularity = jsonMovie.getDouble("popularity")
             val voteCount: Int? = jsonMovie.getInt("vote_count")
             val video: Boolean? = jsonMovie.getBoolean("video")
-            val posterPath: String? =
-                "https://image.tmdb.org/t/p/original" +
-                        jsonMovie.getString("poster_path")
-
+            val posterPath: String? = jsonMovie.getString("poster_path")
             val id: Int? = jsonMovie.getInt("id")
             val adult: Boolean? = jsonMovie.getBoolean("adult")
-            val backdropPath: String? =
-                "https://image.tmdb.org/t/p/original" +
-                        jsonMovie.getString("backdrop_path")
-
+            val backdropPath: String? = jsonMovie.getString("backdrop_path")
             val originalLanguage: String? = jsonMovie.getString("original_language")
             val title: String? = jsonMovie.getString("title")
             val voteAverage: Double? = jsonMovie.getDouble("vote_average")
@@ -54,6 +47,47 @@ fun parseJSON(jsonString: String): ArrayList<NewMovie> {
     } catch (e: JSONException) {
         e.printStackTrace()
     }
+    return movieList
+}
 
+fun jsonToArrayList(jsonString: String?): ArrayList<NewMovie> {
+    val movieList = ArrayList<NewMovie>()
+    try {
+        val moviesArray = JSONArray(jsonString)
+        for (i in 0 until moviesArray.length()) {
+            val jsonMovie = moviesArray.getJSONObject(i)
+            val adult: Boolean = jsonMovie.getBoolean("adult")
+            val backdropPath: String = jsonMovie.getString("backdropPath")
+            val id: Int = jsonMovie.getInt("id")
+            val originalLanguage: String = jsonMovie.getString("originalLanguage")
+            val overview: String = jsonMovie.getString("overview")
+            val popularity = jsonMovie.getDouble("popularity")
+            val posterPath: String = jsonMovie.getString("posterPath")
+            var releaseDate: String = jsonMovie.getString("releaseDate")
+            releaseDate = releaseDate.subSequence(0, 4) as String
+            val title: String = jsonMovie.getString("title")
+            val video: Boolean = jsonMovie.getBoolean("video")
+            val voteAverage: Double = jsonMovie.getDouble("voteAverage")
+            val voteCount: Int = jsonMovie.getInt("voteCount")
+
+            val movieObject = NewMovie(
+                popularity,
+                voteCount,
+                video,
+                posterPath,
+                id,
+                adult,
+                backdropPath,
+                originalLanguage,
+                title,
+                voteAverage,
+                overview,
+                releaseDate
+            )
+            movieList.add(movieObject)
+        }
+    } catch (e: JSONException) {
+        e.printStackTrace()
+    }
     return movieList
 }
