@@ -9,14 +9,12 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.top250.R
 import com.example.top250.adapters.MoviesAdapter
-import com.example.top250.services.DataPopularMovies.popularMovies
+import com.example.top250.services.Data.popularMovies
 import com.example.top250.utils.EXTRA_MOVIE
 import com.example.top250.utils.parseJSON
 import kotlinx.coroutines.*
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.Dispatchers.Main
-import org.json.JSONArray
-import org.json.JSONObject
 import java.net.URL
 
 suspend fun getMoviesFromJSON(url: String): String = withContext(IO) {

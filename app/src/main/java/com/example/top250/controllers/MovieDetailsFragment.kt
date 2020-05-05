@@ -8,15 +8,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.example.top250.models.NewMovie
 import com.example.top250.R
-import com.example.top250.services.DataWatchedMovies.watchedMovies
+import com.example.top250.services.Data.watchedMovies
 import com.example.top250.services.MySharedPreferences
 import com.example.top250.utils.EXTRA_MOVIE
-import com.example.top250.utils.WATCHED_MOVIES
-import com.example.top250.utils.jsonToArrayList
-import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_movie_details.*
-import org.json.JSONArray
 
 val REMOVE_FROM_WATCHED = "REMOVE FROM WATCHED"
 val ADD_TO_WATCHED = "ADD TO WATCHED"

@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import com.example.top250.R
 import com.example.top250.models.getPopularMoviesList
 import com.example.top250.models.setMoviesToView
-import com.example.top250.services.DataPopularMovies.popularMovies
+import com.example.top250.services.Data.popularMovies
 import kotlinx.android.synthetic.main.fragment_all_movies.*
 
 

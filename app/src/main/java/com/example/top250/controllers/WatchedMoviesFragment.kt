@@ -8,7 +8,7 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import com.example.top250.R
 import com.example.top250.models.setMoviesToView
-import com.example.top250.services.DataWatchedMovies.watchedMovies
+import com.example.top250.services.Data.watchedMovies
 import com.example.top250.services.MySharedPreferences
 import com.example.top250.utils.WATCHED_MOVIES
 import kotlinx.android.synthetic.main.fragment_watched_movies.*
