@@ -7,8 +7,8 @@ import android.view.View
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import com.example.top250.R
-import com.example.top250.models.setMoviesToView
-import com.example.top250.services.Data.watchedMovies
+import com.example.top250.services.setMoviesToView
+import com.example.top250.models.Data.watchedMovies
 import com.example.top250.services.MySharedPreferences
 import com.example.top250.utils.WATCHED_MOVIES
 import kotlinx.android.synthetic.main.fragment_watched_movies.*
@@ -38,6 +38,12 @@ class WatchedMoviesFragment : Fragment() {
 
         val fragmentManager = activity?.supportFragmentManager
 
-        setMoviesToView(watchedMovies, context, movieDetailsFragment, movies_to_watch_recycler_view, fragmentManager)
+        setMoviesToView(
+            watchedMovies,
+            context,
+            movieDetailsFragment,
+            movies_to_watch_recycler_view,
+            fragmentManager
+        )
     }
 }

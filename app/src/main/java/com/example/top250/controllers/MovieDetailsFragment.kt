@@ -6,9 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.example.top250.models.NewMovie
+import com.example.top250.models.Movie
 import com.example.top250.R
-import com.example.top250.services.Data.watchedMovies
+import com.example.top250.models.Data.watchedMovies
 import com.example.top250.services.MySharedPreferences
 import com.example.top250.utils.EXTRA_MOVIE
 import com.squareup.picasso.Picasso
@@ -30,7 +30,7 @@ class MovieDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val bundle: Bundle? = this.arguments
-        val movie: NewMovie? = bundle?.getParcelable(EXTRA_MOVIE)
+        val movie: Movie? = bundle?.getParcelable(EXTRA_MOVIE)
 
         Picasso.get().load("https://image.tmdb.org/t/p/original" + movie?.backdropPath)
             .into(movie_back_image)
@@ -62,7 +62,7 @@ class MovieDetailsFragment : Fragment() {
         }
     }
 
-    fun addToWatched(movie: NewMovie?) {
+    fun addToWatched(movie: Movie?) {
         if (movie != null) {
             if (!containsMovie(movie)) {
                 watchedMovies.add(movie)
@@ -76,7 +76,7 @@ class MovieDetailsFragment : Fragment() {
         }
     }
 
-    fun removeFromWatched(movie: NewMovie?) {
+    fun removeFromWatched(movie: Movie?) {
         if (movie != null) {
             if (containsMovie(movie)) {
                 removeMovieWithId(movie)
@@ -91,7 +91,7 @@ class MovieDetailsFragment : Fragment() {
     }
 
 
-    fun containsMovie(movie: NewMovie?): Boolean {
+    fun containsMovie(movie: Movie?): Boolean {
         val currentId = movie?.id
         watchedMovies.forEach {
             if (it.id == currentId) {
@@ -101,7 +101,7 @@ class MovieDetailsFragment : Fragment() {
         return false
     }
 
-    fun removeMovieWithId(movie: NewMovie?) {
+    fun removeMovieWithId(movie: Movie?) {
         val currentId = movie?.id
         watchedMovies.forEach {
             if (it.id == currentId) {

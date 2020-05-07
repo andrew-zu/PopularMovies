@@ -1,13 +1,13 @@
 package com.example.top250.utils
 
-import com.example.top250.models.NewMovie
+import com.example.top250.models.Movie
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 
 
-fun parseJSON(jsonString: String): ArrayList<NewMovie> {
-    val movieList = ArrayList<NewMovie>()
+fun parseJSON(jsonString: String): ArrayList<Movie> {
+    val movieList = ArrayList<Movie>()
     try {
         val jsonData = JSONObject(jsonString)
         val moviesArray = jsonData.getJSONArray("movies")
@@ -27,7 +27,7 @@ fun parseJSON(jsonString: String): ArrayList<NewMovie> {
             var releaseDate: String? = jsonMovie.getString("release_date")
             releaseDate = releaseDate?.subSequence(0, 4) as String?
 
-            val movieObject = NewMovie(
+            val movieObject = Movie(
                 popularity,
                 voteCount,
                 video,
@@ -50,8 +50,8 @@ fun parseJSON(jsonString: String): ArrayList<NewMovie> {
     return movieList
 }
 
-fun jsonToArrayList(jsonString: String?): ArrayList<NewMovie> {
-    val movieList = ArrayList<NewMovie>()
+fun jsonToArrayList(jsonString: String?): ArrayList<Movie> {
+    val movieList = ArrayList<Movie>()
     try {
         val moviesArray = JSONArray(jsonString)
         for (i in 0 until moviesArray.length()) {
@@ -70,7 +70,7 @@ fun jsonToArrayList(jsonString: String?): ArrayList<NewMovie> {
             val voteAverage: Double = jsonMovie.getDouble("voteAverage")
             val voteCount: Int = jsonMovie.getInt("voteCount")
 
-            val movieObject = NewMovie(
+            val movieObject = Movie(
                 popularity,
                 voteCount,
                 video,

@@ -2,7 +2,7 @@ package com.example.top250.services
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.example.top250.models.NewMovie
+import com.example.top250.models.Movie
 import com.example.top250.utils.WATCHED_MOVIES
 import com.example.top250.utils.jsonToArrayList
 import com.google.gson.Gson
@@ -24,7 +24,7 @@ object MySharedPreferences {
         preferences = context.getSharedPreferences(PREFERENCES_FILE_NAME, Context.MODE_PRIVATE)
     }
 
-    fun saveToPref(list: ArrayList<NewMovie>) {
+    fun saveToPref(list: ArrayList<Movie>) {
         clearSharedPreference()
         val editor: SharedPreferences.Editor = preferences.edit()
         val dataString = Gson().toJson(list)
@@ -32,8 +32,8 @@ object MySharedPreferences {
         editor.commit()
     }
 
-    fun retrieveFromPref(KEY_NAME: String): ArrayList<NewMovie> {
-        var retrievedMovieList = ArrayList<NewMovie>()
+    fun retrieveFromPref(KEY_NAME: String): ArrayList<Movie> {
+        var retrievedMovieList = ArrayList<Movie>()
         val dataString = preferences.getString(KEY_NAME, null)
         if(dataString!=null){
             retrievedMovieList = jsonToArrayList(dataString)
