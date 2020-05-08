@@ -10,24 +10,31 @@
     tools:context=".controllers.NavigationFragment">
 
     <Button
-        android:id="@+id/top_movies_btn"
+        android:id="@+id/popular_movies_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/top_movies" />
+        android:text="@string/popular" />
 
     <Button
-        android:id="@+id/movies_to_watch_btn"
+        android:id="@+id/newest_movies_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/newest" />
+
+    <Button
+        android:id="@+id/watch_later_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:layout_marginBottom="24dp"
-        android:text="@string/movies_to_watch" />
+        android:text="@string/watch_later" />
 
     <Button
-        android:id="@+id/watched_movies_btn"
+        android:id="@+id/watched_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/watched_movies" />
+        android:text="@string/watched" />
 
 </LinearLayout>
 

@@ -7,13 +7,11 @@
     <string name="title">title</string>
     <string name="average">average</string>
     <string name="release_date">release date</string>
-    <string name="overview">overview</string>
     <string name="todo">TODO</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="moview_overview">Moview Overview</string>
-    <string name="overvirew">Overvirew</string>
     <string name="add_to_watch_later">add to watch later</string>
     <string name="add_to_watched">add to watched</string>
     <string name="top_movies">Top Movies</string>
@@ -21,4 +19,12 @@
     <string name="no_movies_to_show">NO MOVIES TO SHOW</string>
     <string name="info">Info</string>
     <string name="movie_poster">movie_poster</string>
+    <string name="popular_movies">POPULAR MOVIES</string>
+    <string name="popular">POPULAR</string>
+    <string name="top_rated">TOP RATED</string>
+    <string name="watch_later">WATCH LATER</string>
+    <string name="watched">WATCHED</string>
+    <string name="movie_overview">movie overview</string>
+    <string name="overview">overview</string>
+    <string name="newest">NEWEST</string>
 </resources>
