@@ -24,12 +24,12 @@ object MySharedPreferences {
     }
 
     fun saveToPref(list: ArrayList<Movie>) {
-        Log.d(TAG, "Saving to SP")
         clearSharedPreference()
         val editor: SharedPreferences.Editor = preferences.edit()
         val dataString = Gson().toJson(list)
         editor.putString(WATCHED_MOVIES, dataString)
         editor.apply()
+        Log.d(TAG, "Saving to SP")
     }
 
     fun retrieveFromPref(KEY_NAME: String): ArrayList<Movie> {
@@ -45,10 +45,10 @@ object MySharedPreferences {
     }
 
     fun clearSharedPreference() {
-        Log.d(TAG, "Clearing SP")
         val editor: SharedPreferences.Editor = preferences.edit()
         editor.clear()
         editor.apply()
+        Log.d(TAG, "Clearing SP")
     }
 
 }

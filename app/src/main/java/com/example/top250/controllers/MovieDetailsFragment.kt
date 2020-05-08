@@ -1,6 +1,7 @@
 package com.example.top250.controllers
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,8 +15,9 @@ import com.example.top250.utils.EXTRA_MOVIE
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_movie_details.*
 
-val REMOVE_FROM_WATCHED = "REMOVE FROM WATCHED"
-val ADD_TO_WATCHED = "ADD TO WATCHED"
+private const val REMOVE_FROM_WATCHED = "REMOVE FROM WATCHED"
+private const val ADD_TO_WATCHED = "ADD TO WATCHED"
+private const val TAG = "MovieDetailsFragment"
 
 class MovieDetailsFragment : Fragment() {
 
@@ -48,11 +50,9 @@ class MovieDetailsFragment : Fragment() {
 
         add_to_watched_btn.setOnClickListener {
             if (containsMovie(movie)) {
-                println("movie removed ${movie?.title}")
                 removeFromWatched(movie)
                 add_to_watched_btn.text = ADD_TO_WATCHED
             } else {
-                println("Movie aded ${movie?.title}")
                 addToWatched(movie)
                 add_to_watched_btn.text = REMOVE_FROM_WATCHED
             }
@@ -69,12 +69,13 @@ class MovieDetailsFragment : Fragment() {
             if (!containsMovie(movie)) {
                 watchedMovies.add(movie)
                 MySharedPreferences.saveToPref(watchedMovies)
+                Log.d(TAG, "Movie $movie added to watchedMovies")
             } else {
-                println("Movie is already added!!!")
+                Log.d(TAG, "Movie is already added!")
             }
 
         } else {
-            println("Movie is null!!!!")
+            Log.d(TAG, "Movie is null!")
         }
     }
 
@@ -84,12 +85,13 @@ class MovieDetailsFragment : Fragment() {
                 removeMovieWithId(movie)
                 MySharedPreferences.saveToPref(watchedMovies)
             } else {
-                println("Movie not in a list")
+                Log.d(TAG, "Movie not in a list")
             }
 
         } else {
-            println("Movie is null!!!!")
+            Log.d(TAG, "Movie is null!")
         }
+        Log.d(TAG, "Movie $movie removed")
     }
 
 
