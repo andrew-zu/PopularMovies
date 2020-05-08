@@ -22,7 +22,6 @@ fun jsonToArrayList(jsonString: String?): ArrayList<Movie> {
             val voteAverage: Double? = jsonMovie.getDouble("vote_average")
             val overview: String? = jsonMovie.getString("overview")
             var releaseDate: String? = jsonMovie.getString("release_date")
-            releaseDate = releaseDate?.subSequence(0, 4) as String?
 
             val movieObject = Movie(
                 popularity,
