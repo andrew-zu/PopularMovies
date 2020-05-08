@@ -42,14 +42,14 @@ class MovieDetailsFragment : Fragment() {
         movie_rating.text = "${movie?.voteAverage}/10"
 
 
-        if (containsMovie(movie)) {
+        if (watchedMovies.contains(movie)) {
             add_to_watched_btn.text = REMOVE_FROM_WATCHED
         } else {
             add_to_watched_btn.text = ADD_TO_WATCHED
         }
 
         add_to_watched_btn.setOnClickListener {
-            if (containsMovie(movie)) {
+            if (watchedMovies.contains(movie)) {
                 removeFromWatched(movie)
                 add_to_watched_btn.text = ADD_TO_WATCHED
             } else {
@@ -66,7 +66,7 @@ class MovieDetailsFragment : Fragment() {
 
     fun addToWatched(movie: Movie?) {
         if (movie != null) {
-            if (!containsMovie(movie)) {
+            if (!watchedMovies.contains(movie)) {
                 watchedMovies.add(movie)
                 MySharedPreferences.saveToPref(watchedMovies)
                 Log.d(TAG, "Movie $movie added to watchedMovies")
@@ -81,8 +81,8 @@ class MovieDetailsFragment : Fragment() {
 
     fun removeFromWatched(movie: Movie?) {
         if (movie != null) {
-            if (containsMovie(movie)) {
-                removeMovieWithId(movie)
+            if (watchedMovies.contains(movie)) {
+                watchedMovies.remove(movie)
                 MySharedPreferences.saveToPref(watchedMovies)
             } else {
                 Log.d(TAG, "Movie not in a list")
@@ -94,23 +94,4 @@ class MovieDetailsFragment : Fragment() {
         Log.d(TAG, "Movie $movie removed")
     }
 
-
-    fun containsMovie(movie: Movie?): Boolean {
-        val currentId = movie?.id
-        watchedMovies.forEach {
-            if (it.id == currentId) {
-                return true
-            }
-        }
-        return false
-    }
-
-    fun removeMovieWithId(movie: Movie?) {
-        val currentId = movie?.id
-        watchedMovies.forEach {
-            if (it.id == currentId) {
-                watchedMovies.remove(it)
-            }
-        }
-    }
 }
