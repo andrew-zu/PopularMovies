@@ -43,18 +43,18 @@ class MovieDetailsFragment : Fragment() {
 
 
         if (watchedMovies.contains(movie)) {
-            add_to_watched_btn.text = REMOVE_FROM_WATCHED
+            add_remove_to_watched_btn.text = REMOVE_FROM_WATCHED
         } else {
-            add_to_watched_btn.text = ADD_TO_WATCHED
+            add_remove_to_watched_btn.text = ADD_TO_WATCHED
         }
 
-        add_to_watched_btn.setOnClickListener {
+        add_remove_to_watched_btn.setOnClickListener {
             if (watchedMovies.contains(movie)) {
                 removeFromWatched(movie)
-                add_to_watched_btn.text = ADD_TO_WATCHED
+                add_remove_to_watched_btn.text = ADD_TO_WATCHED
             } else {
                 addToWatched(movie)
-                add_to_watched_btn.text = REMOVE_FROM_WATCHED
+                add_remove_to_watched_btn.text = REMOVE_FROM_WATCHED
             }
         }
 

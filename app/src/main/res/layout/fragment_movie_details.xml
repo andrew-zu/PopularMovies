@@ -29,12 +29,12 @@
         android:layout_marginBottom="8dp"
         android:text="@string/add_to_watch_later"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/add_to_watched_btn"
+        app:layout_constraintEnd_toStartOf="@+id/add_remove_to_watched_btn"
         app:layout_constraintHorizontal_bias="0.065"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/add_to_watched_btn"
+        android:id="@+id/add_remove_to_watched_btn"
         android:layout_width="184dp"
         android:layout_height="57dp"
         android:layout_marginEnd="8dp"
