@@ -25,6 +25,9 @@
     <string name="watch_later">WATCH LATER</string>
     <string name="watched">WATCHED</string>
     <string name="movie_overview">movie overview</string>
-    <string name="overview">overview</string>
     <string name="newest">NEWEST</string>
+    <string name="movie_title">movie title</string>
+    <string name="movie_year">movie_year</string>
+    <string name="movie_rating">movie_rating</string>
+    <string name="overview">overview</string>
 </resources>

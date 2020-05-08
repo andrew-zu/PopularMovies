@@ -34,8 +34,10 @@ class MovieDetailsFragment : Fragment() {
 
         Picasso.get().load("https://image.tmdb.org/t/p/original" + movie?.backdropPath)
             .into(movie_back_image)
-        movie_title.text = "${movie?.title}  (${movie?.releaseDate})  *${movie?.voteAverage}"
+        movie_title.text = movie?.title
+        movie_release_year.text = "(${movie?.releaseDate?.subSequence(0,4)})"
         movie_overview.text = movie?.overview
+        movie_rating.text = "${movie?.voteAverage}/10"
 
 
         if (containsMovie(movie)) {
