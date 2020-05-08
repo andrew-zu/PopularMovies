@@ -42,7 +42,7 @@ class WatchedMoviesFragment : Fragment() {
             watchedMovies,
             context,
             movieDetailsFragment,
-            movies_to_watch_recycler_view,
+            watched_movies_recycler_view,
             fragmentManager
         )
     }

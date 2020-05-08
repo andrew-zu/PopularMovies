@@ -23,11 +23,11 @@ object MySharedPreferences {
         preferences = context.getSharedPreferences(PREFERENCES_FILE_NAME, Context.MODE_PRIVATE)
     }
 
-    fun saveToPref(list: ArrayList<Movie>) {
-        clearSharedPreference()
+    fun saveToPref(list: ArrayList<Movie>, KEY_NAME: String) {
+        clearSharedPreference(KEY_NAME)
         val editor: SharedPreferences.Editor = preferences.edit()
         val dataString = Gson().toJson(list)
-        editor.putString(WATCHED_MOVIES, dataString)
+        editor.putString(KEY_NAME, dataString)
         editor.apply()
         Log.d(TAG, "Saving to SP")
     }
@@ -44,9 +44,9 @@ object MySharedPreferences {
         }
     }
 
-    fun clearSharedPreference() {
+    fun clearSharedPreference(KEY_NAME: String) {
         val editor: SharedPreferences.Editor = preferences.edit()
-        editor.clear()
+        editor.remove(KEY_NAME)
         editor.apply()
         Log.d(TAG, "Clearing SP")
     }
