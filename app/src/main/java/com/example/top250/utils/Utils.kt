@@ -56,19 +56,19 @@ fun jsonToArrayList(jsonString: String?): ArrayList<Movie> {
         val moviesArray = JSONArray(jsonString)
         for (i in 0 until moviesArray.length()) {
             val jsonMovie = moviesArray.getJSONObject(i)
-            val adult: Boolean = jsonMovie.getBoolean("adult")
-            val backdropPath: String = jsonMovie.getString("backdropPath")
-            val id: Int = jsonMovie.getInt("id")
-            val originalLanguage: String = jsonMovie.getString("originalLanguage")
-            val overview: String = jsonMovie.getString("overview")
             val popularity = jsonMovie.getDouble("popularity")
-            val posterPath: String = jsonMovie.getString("posterPath")
-            var releaseDate: String = jsonMovie.getString("releaseDate")
-            releaseDate = releaseDate.subSequence(0, 4) as String
-            val title: String = jsonMovie.getString("title")
-            val video: Boolean = jsonMovie.getBoolean("video")
-            val voteAverage: Double = jsonMovie.getDouble("voteAverage")
-            val voteCount: Int = jsonMovie.getInt("voteCount")
+            val voteCount: Int? = jsonMovie.getInt("vote_count")
+            val video: Boolean? = jsonMovie.getBoolean("video")
+            val posterPath: String? = jsonMovie.getString("poster_path")
+            val id: Int? = jsonMovie.getInt("id")
+            val adult: Boolean? = jsonMovie.getBoolean("adult")
+            val backdropPath: String? = jsonMovie.getString("backdrop_path")
+            val originalLanguage: String? = jsonMovie.getString("original_language")
+            val title: String? = jsonMovie.getString("title")
+            val voteAverage: Double? = jsonMovie.getDouble("vote_average")
+            val overview: String? = jsonMovie.getString("overview")
+            var releaseDate: String? = jsonMovie.getString("release_date")
+            releaseDate = releaseDate?.subSequence(0, 4) as String?
 
             val movieObject = Movie(
                 popularity,

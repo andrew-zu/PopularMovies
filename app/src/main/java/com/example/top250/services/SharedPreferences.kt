@@ -6,6 +6,7 @@ import android.util.Log
 import com.example.top250.models.Movie
 import com.example.top250.utils.WATCHED_MOVIES
 import com.example.top250.utils.jsonToArrayList
+import com.example.top250.utils.parseJSON
 import com.google.gson.Gson
 
 object MySharedPreferences {
@@ -27,6 +28,7 @@ object MySharedPreferences {
         clearSharedPreference()
         val editor: SharedPreferences.Editor = preferences.edit()
         val dataString = Gson().toJson(list)
+        Log.d(TAG, "Data: $dataString")
         editor.putString(WATCHED_MOVIES, dataString)
         editor.apply()
         Log.d(TAG, "Saving to SP")
