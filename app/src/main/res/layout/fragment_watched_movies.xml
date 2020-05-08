@@ -6,7 +6,7 @@
     tools:context=".controllers.WatchedMoviesFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/movies_to_watch_recycler_view"
+        android:id="@+id/watched_movies_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

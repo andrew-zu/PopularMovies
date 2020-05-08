@@ -4,17 +4,15 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.VISIBLE
 import android.view.ViewGroup
 import com.example.top250.R
+import com.example.top250.models.Data.popularMovies
+import com.example.top250.repository.Repository.getPopularMoviesList
 import com.example.top250.services.setMoviesToView
-import com.example.top250.models.Data.watchedMovies
-import com.example.top250.services.MySharedPreferences
-import com.example.top250.utils.WATCHED_MOVIES
-import kotlinx.android.synthetic.main.fragment_watched_movies.*
+import kotlinx.android.synthetic.main.fragment_popular_movies.*
 
 
-class WatchedMoviesFragment : Fragment() {
+class PopularMoviesFragment : Fragment() {
 
     lateinit var movieDetailsFragment: MovieDetailsFragment
 
@@ -22,28 +20,25 @@ class WatchedMoviesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-            watchedMovies = MySharedPreferences.retrieveFromPref(WATCHED_MOVIES)
-
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_watched_movies, container, false)
+        return inflater.inflate(R.layout.fragment_popular_movies, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         movieDetailsFragment = MovieDetailsFragment()
 
-        if(watchedMovies.isEmpty()){
-            no_movies_to_display.visibility = VISIBLE
-        }
-
         val fragmentManager = activity?.supportFragmentManager
 
-        setMoviesToView(
-            watchedMovies,
-            context,
-            movieDetailsFragment,
-            watched_movies_recycler_view,
-            fragmentManager
-        )
+        getPopularMoviesList {
+            setMoviesToView(
+                popularMovies,
+                context,
+                movieDetailsFragment,
+                popular_movies_recycler_view,
+                fragmentManager
+            )
+        }
     }
+
 }

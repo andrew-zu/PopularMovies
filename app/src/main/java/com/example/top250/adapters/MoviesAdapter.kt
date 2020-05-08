@@ -7,11 +7,15 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.top250.models.NewMovie
+import com.example.top250.models.Movie
 import com.example.top250.R
 import com.squareup.picasso.Picasso
 
-class MoviesAdapter(val context: Context?, val movies: ArrayList<NewMovie>, val itemClick: (NewMovie) -> Unit) :
+class MoviesAdapter(
+    val context: Context?,
+    val movies: ArrayList<Movie>,
+    val itemClick: (Movie) -> Unit
+) :
     RecyclerView.Adapter<MoviesAdapter.MoviesHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesHolder {
@@ -28,15 +32,16 @@ class MoviesAdapter(val context: Context?, val movies: ArrayList<NewMovie>, val 
         holder.bindMovie(movies[position], context)
     }
 
-    inner class MoviesHolder(itemView: View, val itemClick: (NewMovie) -> Unit) : RecyclerView.ViewHolder(itemView) {
+    inner class MoviesHolder(itemView: View, val itemClick: (Movie) -> Unit) :
+        RecyclerView.ViewHolder(itemView) {
 
         val movieImage = itemView.findViewById<ImageView>(R.id.movie_image)
-        val movieInfo = itemView.findViewById<TextView>(R.id.movie_info)
+        val title = itemView.findViewById<TextView>(R.id.title)
 
-        fun bindMovie(movie: NewMovie, context: Context?) {
-            val infoText = movie.title + " - " + movie.releaseDate
-            Picasso.get().load("https://image.tmdb.org/t/p/original"+movie.posterPath).into(movieImage);
-            movieInfo.text = infoText
+        fun bindMovie(movie: Movie, context: Context?) {
+            Picasso.get().load("https://image.tmdb.org/t/p/original" + movie.posterPath)
+                .into(movieImage)
+            title.text = movie.title
             itemView.setOnClickListener { itemClick(movie) }
         }
     }

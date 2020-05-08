@@ -1,4 +1,4 @@
-package com.example.top250.models
+package com.example.top250.services
 
 import android.content.Context
 import android.content.res.Configuration
@@ -9,28 +9,12 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.top250.R
 import com.example.top250.adapters.MoviesAdapter
-import com.example.top250.services.Data.popularMovies
+import com.example.top250.models.Movie
 import com.example.top250.utils.EXTRA_MOVIE
-import com.example.top250.utils.parseJSON
-import kotlinx.coroutines.*
-import kotlinx.coroutines.Dispatchers.IO
-import kotlinx.coroutines.Dispatchers.Main
-import java.net.URL
 
-suspend fun getMoviesFromJSON(url: String): String = withContext(IO) {
-    var result = URL(url).readText()
-    return@withContext result
-}
-
-fun getPopularMoviesList(url: String, func: () -> Unit) {
-    CoroutineScope(Main).launch {
-        popularMovies = parseJSON(getMoviesFromJSON(url))
-        func()
-    }
-}
 
 fun setMoviesToView(
-    movieList: ArrayList<NewMovie>,
+    movieList: ArrayList<Movie>,
     context: Context?,
     newFragment: Fragment,
     recyclerView: RecyclerView,

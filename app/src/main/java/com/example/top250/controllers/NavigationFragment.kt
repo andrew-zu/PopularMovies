@@ -11,25 +11,35 @@ import kotlinx.android.synthetic.main.fragment_navigation.*
 
 class NavigationFragment : Fragment() {
 
-    lateinit var allMoviesFragment: AllMoviesFragment
+    lateinit var popularMoviesFragment: PopularMoviesFragment
+    lateinit var newestMoviesFragment: NewestMoviesFragment
     lateinit var moviesToWatchFragment: MoviesToWatchFragment
     lateinit var watchedMoviesFragment: WatchedMoviesFragment
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        allMoviesFragment = AllMoviesFragment()
+        popularMoviesFragment = PopularMoviesFragment()
         moviesToWatchFragment = MoviesToWatchFragment()
         watchedMoviesFragment = WatchedMoviesFragment()
+        newestMoviesFragment = NewestMoviesFragment()
 
-        top_movies_btn.setOnClickListener{
+        popular_movies_btn.setOnClickListener{
             activity?.supportFragmentManager
                 ?.beginTransaction()
-                ?.replace(R.id.main_container, allMoviesFragment)
+                ?.replace(R.id.main_container, popularMoviesFragment)
                 ?.addToBackStack("Back to main")
                 ?.commit()
         }
 
-        movies_to_watch_btn.setOnClickListener {
+        newest_movies_btn.setOnClickListener {
+            activity?.supportFragmentManager
+                ?.beginTransaction()
+                ?.replace(R.id.main_container, newestMoviesFragment)
+                ?.addToBackStack("Back to main")
+                ?.commit()
+        }
+
+        watch_later_btn.setOnClickListener {
             activity?.supportFragmentManager
                 ?.beginTransaction()
                 ?.replace(R.id.main_container, moviesToWatchFragment)
@@ -37,7 +47,7 @@ class NavigationFragment : Fragment() {
                 ?.commit()
         }
 
-        watched_movies_btn.setOnClickListener {
+        watched_btn.setOnClickListener {
             activity?.supportFragmentManager
                 ?.beginTransaction()
                 ?.replace(R.id.main_container, watchedMoviesFragment)
@@ -46,7 +56,6 @@ class NavigationFragment : Fragment() {
         }
 
     }
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
