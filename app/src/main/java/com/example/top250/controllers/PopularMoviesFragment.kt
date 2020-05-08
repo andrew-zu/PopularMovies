@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.INVISIBLE
 import android.view.ViewGroup
 import com.example.top250.R
 import com.example.top250.models.Data.popularMovies
@@ -28,9 +29,11 @@ class PopularMoviesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         movieDetailsFragment = MovieDetailsFragment()
 
+
         val fragmentManager = activity?.supportFragmentManager
 
         getPopularMoviesList {
+            popular_progress_bar.visibility = INVISIBLE
             setMoviesToView(
                 popularMovies,
                 context,
