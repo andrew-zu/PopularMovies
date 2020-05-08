@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.INVISIBLE
+import android.view.View.GONE
 import android.view.ViewGroup
 import com.example.top250.R
 import com.example.top250.models.Data.newestMovies
@@ -33,7 +33,7 @@ class NewestMoviesFragment : Fragment() {
         val fragmentManager = activity?.supportFragmentManager
 
         getNewestMoviesList {
-            newest_progress_bar.visibility = INVISIBLE
+            newest_progress_bar.visibility = GONE
             setMoviesToView(
                 newestMovies,
                 context,
