@@ -7,6 +7,8 @@ import com.example.top250.models.Movie
 import com.example.top250.utils.WATCHED_MOVIES
 import com.example.top250.utils.jsonToArrayList
 import com.google.gson.Gson
+import java.util.*
+import kotlin.collections.ArrayList
 
 object MySharedPreferences {
 
@@ -37,8 +39,7 @@ object MySharedPreferences {
         var retrievedMovieList = ArrayList<Movie>()
         val dataString = preferences.getString(KEY_NAME, null)
         if(dataString!=null){
-            retrievedMovieList = jsonToArrayList(dataString)
-            return retrievedMovieList
+            return jsonToArrayList(dataString)
         } else {
             return retrievedMovieList
         }
