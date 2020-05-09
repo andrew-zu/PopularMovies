@@ -13,7 +13,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //show nav fragment
         navigationFragment = NavigationFragment()
 
         supportFragmentManager

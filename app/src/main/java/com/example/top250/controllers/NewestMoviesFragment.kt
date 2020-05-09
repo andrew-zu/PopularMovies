@@ -15,8 +15,7 @@ import kotlinx.android.synthetic.main.fragment_newest_movies.*
 
 class NewestMoviesFragment : Fragment() {
 
-    lateinit var movieDetailsFragment: MovieDetailsFragment
-
+    private lateinit var movieDetailsFragment: MovieDetailsFragment
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,9 +41,5 @@ class NewestMoviesFragment : Fragment() {
                 fragmentManager
             )
         }
-
-
     }
-
-
 }
