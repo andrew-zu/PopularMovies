@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.fragment_popular_movies.*
 
 class PopularMoviesFragment : Fragment() {
 
-    lateinit var movieDetailsFragment: MovieDetailsFragment
+    private lateinit var movieDetailsFragment: MovieDetailsFragment
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,6 +31,7 @@ class PopularMoviesFragment : Fragment() {
         val fragmentManager = activity?.supportFragmentManager
 
         getPopularMoviesList {
+            popular_progress_bar.visibility = View.GONE
             setMoviesToView(
                 popularMovies,
                 context,
@@ -40,5 +41,4 @@ class PopularMoviesFragment : Fragment() {
             )
         }
     }
-
 }

@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.example.top250.models.Movie
 import com.example.top250.R
 import com.example.top250.models.Data.moviesToWatch
@@ -140,6 +139,5 @@ class MovieDetailsFragment : Fragment() {
         }
         Log.d(TAG, "Movie $movie removed")
     }
-
 
 }
